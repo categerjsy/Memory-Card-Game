@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/img/cover.jpg" />
@@ -20,7 +20,24 @@
     <div style="width:99%" id="root"></div>
     <div class="footer">
       <p>I would like to thank <a href="https://www.instagram.com/mirtia_art/?hl=el\">@mirtia_art</a></p>
-      <p>&copy; Copyright 2021, Katerina Gerakianaki</p>
+      <p>&copy; Copyright <span id="copyright">
+        <script>document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script>
+    </span>, Katerina Gerakianaki</p>
     </div>
   </body>
 </html>
+<script>
+  document.addEventListener("keydown", (e) => {
+    // USE THIS TO DISABLE CONTROL AND ALL FUNCTION KEYS
+    // if (e.ctrlKey || (e.keyCode>=112 && e.keyCode<=123)) {
+    // THIS WILL ONLY DISABLE CONTROL AND F12
+    if (e.ctrlKey || e.keyCode==123) {
+      e.stopPropagation();
+      e.preventDefault();
+    }
+  });
+
+ document.addEventListener("contextmenu", function(e){
+      e.preventDefault();
+    }, false);
+</script>
